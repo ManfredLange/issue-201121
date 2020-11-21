@@ -41,6 +41,7 @@ The following may or may not be relevant to this issue:
    ![screenshot three](screenshots/2020-11-21_15-26-17.png)
    Clicking on the error message results in the following error notification:
    ![screenshot four](screenshots/2020-11-21_15-26-44.png)
+   
    This error notification is correct as the file indeed no longer exists. It has just been deleted. Again, this problem can be resolved by restarting OmniSharp
    
 

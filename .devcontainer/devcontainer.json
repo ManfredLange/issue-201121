@@ -1,0 +1,14 @@
+{
+    "name": "repro",
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    "service": "repro",
+    "workspaceFolder": "/workspace",
+    "extensions": [
+        "ms-dotnettools.csharp",
+        "eamodio.gitlens"
+    ],
+    "remoteUser": "repro",
+    "shutdownAction": "stopCompose"
+}

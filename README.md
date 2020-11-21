@@ -1,14 +1,15 @@
 # issue-201121
 Repository with sample code to reproduce an issue that appears to be caused by omnisharp-vscode
 
-See https://github.com/OmniSharp/omnisharp-vscode/issues/4223 for discussion around the particular issue.
+See https://github.com/OmniSharp/omnisharp-vscode/issues/4223 for discussion around this particular issue.
 
 
-Note: as of writing - 21 Nov 2020 - the issue is caused when Docker Desktop for Windows uses WSL2. In this scenario, when a Windows directory is mounted into the Linux file system, the issue described in here can be observed. This is caused the current lack of inotify(7) events being sent by WSL2. Several related issues are reported: https://github.com/Microsoft/WSL/issues?q=is%3Aissue+is%3Aopen+inotify
+## Important Update
+As of writing - 21 Nov 2020 - the issue is caused when Docker Desktop for Windows uses WSL2. In this scenario, when a Windows directory is mounted into the Linux file system, the issue described in here can be observed. This is caused by the current lack of inotify(7) events being sent by WSL2. Several related issues are reported: https://github.com/Microsoft/WSL/issues?q=is%3Aissue+is%3Aopen+inotify
 
 This repo should work fine for WSL1, i.e. old-style WSL using a VM on Hyper-V.
 
-Note, that this also works fine if you copy the files into a suitable Linux distro running on WSL2, then launching VS Code from there. Key point is to enable the integration of Docker Desktop for Windows with the distro you want to use. This is a setting in Docker Desktop for Windows under "Resources" - "WSL Integration".
+Note, that this also works fine if you copy the files into the file system of a suitable Linux distro running on WSL2, then launching VS Code from there. Key point is to enable the integration of Docker Desktop for Windows with the distro you want to use. This is a setting in Docker Desktop for Windows under "Resources" - "WSL Integration".
 
 # Prerequisites
 

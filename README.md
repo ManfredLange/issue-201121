@@ -20,8 +20,8 @@ The following may or may not be relevant to this issue:
 1. Clone repo https://github.com/ManfredLange/issue-201121
 2. Open root directory. This will prompt to reopen the directory in the container. Open directory in container
 3. Once loading the container has completed, open VS Code preferences and switch to "Remote [Dev Container: repro]".
-4. Edit json for remote settings and add `"omnisharp.path": "latest"`. This will show prompt to restart Omnisharp.
-5. Wait for restart of Omnisharp to finish. Restart will pull latest OmniSharp for Linux. As of writing this was version 1.37.1-beta.61
+4. Edit json for remote settings and add `"omnisharp.path": "latest"`. This will show prompt to restart OmniSharp.
+5. Wait for restart of OmniSharp to finish. Restart will pull latest OmniSharp for Linux. As of writing this was version 1.37.1-beta.61
 6. Open terminal and run `dotnet build` to ensure everything compiles "as-is"
 7. In directory `/workspace/CmdLine` create a new file named "Foo.cs". Add the following content:
    ```
@@ -33,9 +33,17 @@ The following may or may not be relevant to this issue:
 	  }
    }
    ```
-   This should cause OmniSharp to complain about "Guid" since `using System;` is missing. Furthermore, `Ctrl+.` should suggest adding the using statement. Instead it displays `No code actions available` (see screenshot)
+   This should cause OmniSharp to complain about "Guid" since `using System;` is missing. Furthermore, `Ctrl+.` should suggest adding the using statement. Instead it displays `No code actions available`:
    ![screenshot one](screenshots/2020-11-21_15-19-46.png)
-8. Restarting OmniSharp picks up on the change and displays the problem (see screenshot)
+8. Restarting OmniSharp picks up on the change and displays the problem as expected:
    ![screenshot two](screenshots/2020-11-21_15-09-29.png)
+9. Deleting file `Foo.cs` will report an issue even though the file no longer exists:
+   ![screenshot three](screenshots/2020-11-21_15-26-17.png)
+   Clicking on the error message results in the following error notification:
+   ![screenshot four](screenshots/2020-11-21_15-26-44.png)
+   This error notification is correct as the file indeed no longer exists. It has just been deleted. Again, this problem can be resolved by restarting OmniSharp
+   
 
 Note that each time you rebuild the container, you will need to repeat steps 3 and 4 because the remote `settings.json` file will be lost.
+
+It appears as if OmniSharp does not pick up on added, moved or deleted files.

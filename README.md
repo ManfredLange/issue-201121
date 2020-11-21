@@ -1,6 +1,8 @@
 # issue-201121
 Repository with sample code to reproduce an issue that appears to be caused by omnisharp-vscode
 
+See https://github.com/OmniSharp/omnisharp-vscode/issues/4223 for discussion around the particular issue.
+
 # Prerequisites
 
 - Docker Desktop 2.5.0.1 for Windows using WSL2
@@ -41,7 +43,7 @@ The following may or may not be relevant to this issue:
    ![screenshot three](screenshots/2020-11-21_15-26-17.png)
    Clicking on the error message results in the following error notification:
    ![screenshot four](screenshots/2020-11-21_15-26-44.png)
-   
+
    This error notification is correct as the file indeed no longer exists. It has just been deleted. Again, this problem can be resolved by restarting OmniSharp
    
 

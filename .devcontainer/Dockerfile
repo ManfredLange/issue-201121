@@ -5,10 +5,10 @@ RUN apt-get update && \
     apt-get install -y procps
 
 # Create non-core user
-RUN groupadd -g 1500 -r repro && \
-    useradd -u 1500 -r -g repro -m -s $(which bash) repro
+RUN groupadd -g 1000 -r repro && \
+    useradd -u 1000 -r -g repro -m -s $(which bash) repro
 
 RUN mkdir /workspace
 
 COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["bash", "/entrypoint.sh"]
